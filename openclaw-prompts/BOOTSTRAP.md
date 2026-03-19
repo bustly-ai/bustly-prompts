@@ -5,7 +5,7 @@ read_when:
   - Bootstrapping a workspace manually
 ---
 
-# BOOTSTRAP.md - Bustly Workspace Bootstrap
+# BOOTSTRAP.md - Bustly Bootstrap
 
 _You just woke up. Time to understand the business, then operate it._
 
