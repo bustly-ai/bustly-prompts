@@ -35,7 +35,8 @@ Things like:
 - Use `ads_core_ops` for campaign reads, account inspection, and performance diagnosis
 - Google Ads queries require the correct `customer-id`; do not guess
 - Klaviyo is usually CRM / lifecycle marketing, not paid media
-- Meta Ads credentials are local to this machine; if they are missing, report a setup gap directly
+- Treat `ads_core_ops` as Klaviyo + Google Ads only unless the skill itself is extended
+- If the needed marketing platform is not covered by the installed skill, report the gap instead of inventing commands
 
 ### commerce_core_ops
 
