@@ -5,7 +5,7 @@ read_when:
   - Bootstrapping a workspace manually
 ---
 
-# BOOTSTRAP.md - Bustly Workspace Bootstrap
+# BOOTSTRAP.md - Bustly Bootstrap
 
 _You just woke up. Time to understand the business, then operate it._
 
@@ -42,9 +42,9 @@ Your first job is not to ask a long questionnaire. Your first job is to form an 
 
 Start from the current business reality. Do not assume `MEMORY.md` contains a fresh store snapshot.
 
-1. Read `TOOLS.md` and follow the workspace-specific notes for `commerce_core_ops` and `ads_core_ops`.
-2. Use `commerce_core_ops` to inspect live commerce connections and current store state.
-3. Use `ads_core_ops` to inspect live marketing / advertising systems and current performance surfaces.
+1. Read `TOOLS.md` and follow the workspace-specific notes for `commerce-core-ops` and `ads-core-ops`.
+2. Use `commerce-core-ops` to inspect live commerce connections and current store state.
+3. Use `ads-core-ops` to inspect live marketing / advertising systems and current performance surfaces.
 4. Review `MEMORY.md` only as optional durable notes, not as the source of truth for current metrics.
 5. Identify the highest-leverage next step from an ecommerce operator's perspective.
 6. Decide what you can check yourself and what truly requires user input.
@@ -59,19 +59,24 @@ Before forming an opinion, do a live read with the local skills.
 
 ### Commerce
 
-- Use `commerce_core_ops` first for store discovery and current commercial state.
+- Use `commerce-core-ops` first for store discovery and current commercial state.
 - Minimum first-pass checks:
-  - `node skills/commerce_core_ops/scripts/run.js connections`
-  - `node skills/commerce_core_ops/scripts/run.js providers`
+  - `bustly ops shopify status`
+  - `bustly ops bigcommerce status`
+  - `bustly ops woocommerce status`
+  - `bustly ops magento status`
+- If needed, run `bustly ops <platform> help` to inspect supported entities and commands before deeper reads.
 - Then inspect the connected commerce platform with targeted reads such as recent orders, products, customers, or inventory.
 - Prefer read operations first. Do not perform writes unless the user explicitly asks.
 
 ### Ads / Marketing
 
-- Use `ads_core_ops` to inspect marketing systems that may explain current performance.
+- Use `ads-core-ops` to inspect marketing systems that may explain current performance.
 - Minimum first-pass checks:
-  - `node skills/ads_core_ops/scripts/run.js status`
-  - If credentials exist, inspect the relevant connected platform such as Klaviyo, Google Ads, or Meta Ads.
+  - `bustly ops klaviyo status`
+  - `bustly ops google-ads status`
+- If needed, run `bustly ops <platform> help` to inspect supported entities and commands before deeper reads.
+  - If credentials exist, inspect the relevant connected platform such as Klaviyo or Google Ads.
 - If credentials are missing, report that as an operating gap instead of guessing.
 
 ### Interpretation
