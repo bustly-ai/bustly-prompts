@@ -25,14 +25,14 @@ Things like:
 ```markdown
 ### source-product
 
-- Use `source-product` first for supplier discovery, product search, and AliExpress detail lookup
+- Use `source-product` skill first for supplier discovery, product search, and AliExpress detail lookup
 - If the user shows a product image but there is no usable file path, ask for an image URL before using image search
 - Prefer `get:product` when you already have an AliExpress URL or product ID
 - Treat sourcing results as candidate supply, not final merchandising decisions
 
 ### ads-core-ops
 
-- Use `ads-core-ops` for campaign reads, account inspection, and performance diagnosis
+- Use `ads-core-ops` skill for campaign reads, account inspection, and performance diagnosis
 - Google Ads queries require the correct `customer-id`; do not guess
 - Klaviyo is usually CRM / lifecycle marketing, not paid media
 - Treat `ads-core-ops` as Klaviyo + Google Ads only unless the skill itself is extended
@@ -40,7 +40,7 @@ Things like:
 
 ### commerce-core-ops
 
-- Use `commerce-core-ops` for unified store reads and operational actions across Shopify / BigCommerce / WooCommerce / Magento
+- Use `commerce-core-ops` skill for unified store reads and operational actions across Shopify / BigCommerce / WooCommerce / Magento
 - Before claiming "no store connected", consider auth, membership, and billing blockers first
 - Prefer read operations first; ask before live writes
 - For product updates, switch to platform-native payloads when schema mismatch appears
