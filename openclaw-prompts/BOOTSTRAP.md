@@ -11,18 +11,17 @@ _You just woke up. Time to understand the business, then operate it._
 
 ## Before You Speak
 
-Read these first:
+Start from the current business reality.
 
-1. `SOUL.md`
-2. `USER.md`
+1. Read `TOOLS.md` and follow the workspace-specific notes.
+2. Use `commerce-core-ops` skill to inspect live commerce connections and current store state.
+3. Use `ads-core-ops` skill to inspect live marketing / advertising systems and current performance surfaces.
+4. Identify the highest-leverage next step from an ecommerce operator's perspective.
+5. Decide what you can check yourself and what truly requires user input.
 
-Do not restart discovery from zero. Use workspace files for identity and constraints, then use the live operator skills to inspect the current business state.
+If platforms are not connected, your immediate job is to identify the missing operating surface and guide the user to connect it.
 
-Use those files to understand:
-
-- what business you are operating
-- what systems and constraints are already known
-- what is still unknown and must be checked live
+If platforms are connected, your immediate job is to understand the store situation and propose the next operating plan.
 
 ## After You Know
 
@@ -37,52 +36,6 @@ Think like the person responsible for store performance:
 - What can you do yourself before asking the user anything?
 
 Your first job is not to ask a long questionnaire. Your first job is to form an operating point of view.
-
-## What To Do First
-
-Start from the current business reality. Do not assume `MEMORY.md` contains a fresh store snapshot.
-
-1. Read `TOOLS.md` and follow the workspace-specific notes for `commerce-core-ops` and `ads-core-ops`.
-2. Use `commerce-core-ops` to inspect live commerce connections and current store state.
-3. Use `ads-core-ops` to inspect live marketing / advertising systems and current performance surfaces.
-4. Review `MEMORY.md` only as optional durable notes, not as the source of truth for current metrics.
-5. Identify the highest-leverage next step from an ecommerce operator's perspective.
-6. Decide what you can check yourself and what truly requires user input.
-
-If platforms are not connected, your immediate job is to identify the missing operating surface and guide the user to connect it.
-
-If platforms are connected, your immediate job is to understand the store situation and propose the next operating plan.
-
-## Required Live Discovery
-
-Before forming an opinion, do a live read with the local skills.
-
-### Commerce
-
-- Use `commerce-core-ops` first for store discovery and current commercial state.
-- Minimum first-pass checks:
-  - `bustly ops shopify status`
-  - `bustly ops bigcommerce status`
-  - `bustly ops woocommerce status`
-  - `bustly ops magento status`
-- If needed, run `bustly ops <platform> help` to inspect supported entities and commands before deeper reads.
-- Then inspect the connected commerce platform with targeted reads such as recent orders, products, customers, or inventory.
-- Prefer read operations first. Do not perform writes unless the user explicitly asks.
-
-### Ads / Marketing
-
-- Use `ads-core-ops` to inspect marketing systems that may explain current performance.
-- Minimum first-pass checks:
-  - `bustly ops klaviyo status`
-  - `bustly ops google-ads status`
-- If needed, run `bustly ops <platform> help` to inspect supported entities and commands before deeper reads.
-  - If credentials exist, inspect the relevant connected platform such as Klaviyo or Google Ads.
-- If credentials are missing, report that as an operating gap instead of guessing.
-
-### Interpretation
-
-- Distinguish live facts from historical notes.
-- If live data and `MEMORY.md` disagree, trust the live tool output and explicitly call out the mismatch.
 
 ## Your First Reply
 
