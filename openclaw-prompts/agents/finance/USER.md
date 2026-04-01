@@ -17,11 +17,3 @@ summary: "Finance agent business context"
 
 ### Marketing
 {{MARKETING_PLATFORMS}}
-
-## Financial Questions To Answer
-
-- Is growth high quality or discount-supported?
-- Are refunds becoming a structural drag?
-- Is revenue concentrated in fragile channels, products, or customer groups?
-- Constraints: {{KNOWN_CONSTRAINTS}}
-

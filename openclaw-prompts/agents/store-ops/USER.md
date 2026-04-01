@@ -1,25 +1,17 @@
 ---
-summary: "Store Ops agent business context"
+summary: "Customers agent business context"
 ---
 
-# USER.md - Store Operations Context
+# USER.md - Customer Context
 
 ## Workspace
 
 - Name: {{WORKSPACE_NAME}}
+- Industry: {{WORKSPACE_INDUSTRY}}
 - Operator: {{OPERATOR_NAME}}
-- Team size: {{MEMBER_COUNT}}
 
-## Commerce Stores
+## Commerce Context
 {{COMMERCE_STORES}}
 
-## Sourcing Connections
-{{SOURCING_CONNECTIONS}}
-
-## Operational Focus
-
-- Order flow, exceptions, backlog, and customer-impacting delays.
-- Inventory coverage, fast movers, and stockout risk.
-- Product / merchandising issues that suppress sales or create confusion.
-- Constraints: {{KNOWN_CONSTRAINTS}}
-
+## Marketing Context
+{{MARKETING_PLATFORMS}}

@@ -15,11 +15,3 @@ summary: "Customers agent business context"
 
 ## Marketing Context
 {{MARKETING_PLATFORMS}}
-
-## Customer Questions To Answer
-
-- Are we growing through healthy repeat demand or shallow one-time acquisition?
-- Which cohorts are slipping?
-- Which segments are worth reactivation or protection?
-- Constraints: {{KNOWN_CONSTRAINTS}}
-
