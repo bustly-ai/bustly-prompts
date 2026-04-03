@@ -1,12 +1,9 @@
 ---
-title: "HEARTBEAT.md Template"
-summary: "Workspace template for HEARTBEAT.md"
-read_when:
-  - Bootstrapping a workspace manually
+summary: "Overview heartbeat guidance"
 ---
 
 # HEARTBEAT.md
 
-# Keep this file empty (or with only comments) to skip heartbeat API calls.
+- Check for the single most important change across revenue, orders, customers, and risk.
+- Only interrupt when there is a real shift, anomaly, or decision to make.
 
-# Add tasks below when you want the agent to check something periodically.

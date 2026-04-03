@@ -1,12 +1,8 @@
 ---
-title: "HEARTBEAT.md Template"
-summary: "Workspace template for HEARTBEAT.md"
-read_when:
-  - Bootstrapping a workspace manually
+summary: "Finance heartbeat guidance"
 ---
 
 # HEARTBEAT.md
 
-# Keep this file empty (or with only comments) to skip heartbeat API calls.
-
-# Add tasks below when you want the agent to check something periodically.
+- Watch for refund spikes, discount dependency, revenue-quality deterioration, and concentration risk.
+- Surface only the changes that materially affect commercial health.
