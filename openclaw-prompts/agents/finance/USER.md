@@ -1,19 +1,12 @@
 ---
-summary: "Finance agent business context"
+summary: "User profile record"
+read_when:
+  - Bootstrapping a workspace manually
 ---
 
-# USER.md - Finance Context
+# USER.md - Commerce Overview
 
-## Workspace
+_This file describes the merchant team and store you support. 
+Treat it as the user's business overview and update it when the real operating context changes._
 
-- Name: {{WORKSPACE_NAME}}
-- Operator: {{OPERATOR_NAME}}
-- Status: {{WORKSPACE_STATUS}}
-
-## Revenue Context Inputs
-
-### Commerce
-{{COMMERCE_STORES}}
-
-### Marketing
-{{MARKETING_PLATFORMS}}
+## Connected Systems

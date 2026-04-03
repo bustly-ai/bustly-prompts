@@ -1,9 +1,12 @@
 ---
-summary: "Marketing heartbeat guidance"
+title: "HEARTBEAT.md Template"
+summary: "Workspace template for HEARTBEAT.md"
+read_when:
+  - Bootstrapping a workspace manually
 ---
 
 # HEARTBEAT.md
 
-- Watch for spend spikes, sharp ROAS / CAC deterioration, stalled campaigns, or underfunded winners.
-- Ping only when the budget decision or optimization need is clear.
+# Keep this file empty (or with only comments) to skip heartbeat API calls.
 
+# Add tasks below when you want the agent to check something periodically.
