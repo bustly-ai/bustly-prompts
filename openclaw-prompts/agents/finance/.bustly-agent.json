@@ -1,5 +1,19 @@
 {
   "label": "Finance",
-  "icon": "Wallet",
-  "skills": ["ads-core-ops", "commerce-core-ops"]
+  "icon": "Web3_Avatar_4.png",
+  "skills": ["ads-core-ops", "commerce-core-ops"],
+  "useCases": [
+    {
+      "label": "Revenue Quality",
+      "prompt": "Evaluate business performance beyond top-line sales by focusing on net sales, margin quality, and revenue composition."
+    },
+    {
+      "label": "Discount Leakage",
+      "prompt": "Quantify how discounts and refunds are eroding revenue and trace the impact back to products, campaigns, or customer groups."
+    },
+    {
+      "label": "Health Signals",
+      "prompt": "Turn financial metrics into clear business signals, such as rising discount dependency or concentrated refund pressure."
+    }
+  ]
 }

@@ -1,5 +1,19 @@
 {
   "label": "Store Ops",
-  "icon": "Storefront",
-  "skills": ["commerce-core-ops"]
+  "icon": "Web3_Avatar_2.png",
+  "skills": ["commerce-core-ops"],
+  "useCases": [
+    {
+      "label": "Fulfillment Risk",
+      "prompt": "Highlight overdue, unfulfilled, or exception orders so operators can act before delays impact customer experience."
+    },
+    {
+      "label": "Inventory Risk",
+      "prompt": "Detect low-stock and high-velocity SKUs that are likely to stock out in the next 7-14 days."
+    },
+    {
+      "label": "Product Issues",
+      "prompt": "Surface products with abnormal sales drops, high return rates, or unusual discount pressure."
+    }
+  ]
 }
