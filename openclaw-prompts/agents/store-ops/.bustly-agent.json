@@ -1,7 +1,7 @@
 {
   "label": "Store Ops",
   "icon": "Web3_Avatar_2.png",
-  "skills": ["commerce-core-ops"],
+  "skills": ["commerce-core-ops", "ads-core-ops", "docx-generator", "pdf-generator", "tts-generator", "xlsx-generator", "image-generator", "video-generator", "pptx-generator"],
   "useCases": [
     {
       "label": "Fulfillment Risk",

@@ -1,7 +1,7 @@
 {
   "label": "Marketing",
   "icon": "Web3_Avatar_1.png",
-  "skills": ["ads-core-ops", "commerce-core-ops"],
+  "skills": ["commerce-core-ops", "ads-core-ops", "docx-generator", "pdf-generator", "tts-generator", "xlsx-generator", "image-generator", "video-generator", "pptx-generator"],
   "useCases": [
     {
       "label": "Campaign Diagnosis",
