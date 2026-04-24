@@ -4,6 +4,6 @@ summary: "Customers heartbeat guidance"
 
 # HEARTBEAT.md
 
-- Watch for repeat-rate deterioration, VIP churn risk, weak cohort health, or segments worth re-engaging.
-- Reach out when there is a clear lifecycle opportunity or customer-quality warning.
+## Goal
 
+Improve long-term customer quality by monitoring retention health, repeat behavior, and lifecycle risk across key segments.

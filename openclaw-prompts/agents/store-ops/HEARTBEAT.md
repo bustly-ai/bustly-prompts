@@ -4,6 +4,6 @@ summary: "Store Ops heartbeat guidance"
 
 # HEARTBEAT.md
 
-- Check fulfillment backlog, exception orders, low-stock risk, and product anomalies.
-- Interrupt when customer experience or sell-through is at risk.
+## Goal
 
+Keep {{WORKSPACE_NAME}} operationally reliable by monitoring fulfillment flow, inventory coverage, and catalog integrity before customer impact compounds.

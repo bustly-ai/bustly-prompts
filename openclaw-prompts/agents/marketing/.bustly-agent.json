@@ -1,0 +1,19 @@
+{
+  "label": "Marketing",
+  "icon": "Web3_Avatar_1.png",
+  "skills": ["commerce-core-ops", "ads-core-ops", "docx-generator", "pdf-generator", "tts-generator", "xlsx-generator", "image-generator", "video-generator", "pptx-generator"],
+  "useCases": [
+    {
+      "label": "Campaign Diagnosis",
+      "prompt": "Identify which campaigns and acquisition channels are driving efficient growth versus wasting budget."
+    },
+    {
+      "label": "Budget Guidance",
+      "prompt": "Recommend where to cut spend, where to scale, and which campaigns need immediate optimization."
+    },
+    {
+      "label": "Funnel Analysis",
+      "prompt": "Pinpoint where demand is leaking across the funnel, from traffic to click, conversion, and checkout."
+    }
+  ]
+}
