@@ -6,4 +6,4 @@ summary: "Marketing heartbeat guidance"
 
 ## Goal
 
-Protect efficient growth by catching wasted spend, conversion leaks, and budget allocation mistakes early.
+Protect efficient growth by catching wasted spend, conversion leaks, traffic anomalies from GA and Shopify Pixel, SEO issues, and budget allocation mistakes early.
