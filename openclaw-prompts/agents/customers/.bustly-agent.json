@@ -1,7 +1,7 @@
 {
   "label": "Customers",
   "icon": "Web3_Avatar_3.png",
-  "skills": ["commerce-core-ops"],
+  "skills": ["commerce-core-ops", "ads-core-ops", "docx-generator", "pdf-generator", "tts-generator", "xlsx-generator", "image-generator", "video-generator", "pptx-generator"],
   "useCases": [
     {
       "label": "Customer Mix",
