@@ -1,0 +1,143 @@
+name: Bustly Prompts Upload
+
+on:
+  push:
+    branches:
+      - testing
+      - main
+    paths:
+      - "openclaw-prompts/**"
+      - "scripts/upload-dist.mjs"
+      - ".github/workflows/bustly-prompts-upload.yml"
+  workflow_dispatch:
+    inputs:
+      upload_env:
+        description: "Upload target environment"
+        required: true
+        default: "test"
+        type: choice
+        options:
+          - test
+          - prod
+
+concurrency:
+  group: bustly-prompts-upload-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Resolve upload target
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            target="${{ inputs.upload_env }}"
+          elif [ "${GITHUB_REF_NAME}" = "main" ]; then
+            target="prod"
+          elif [ "${GITHUB_REF_NAME}" = "testing" ]; then
+            target="test"
+          else
+            echo "::error::Unsupported branch: ${GITHUB_REF_NAME}"
+            exit 1
+          fi
+
+          if [ "$target" = "prod" ]; then
+            echo "OSS_BUCKET=www-salerio-global" >> "$GITHUB_ENV"
+          else
+            echo "OSS_BUCKET=test-www-salerio-global" >> "$GITHUB_ENV"
+          fi
+
+          echo "UPLOAD_ENV=$target" >> "$GITHUB_ENV"
+          echo "OSS_PREFIX=bustly-prompts" >> "$GITHUB_ENV"
+          echo "PROMPTS_DIR=openclaw-prompts" >> "$GITHUB_ENV"
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install OSS SDK
+        run: python -m pip install --disable-pip-version-check --no-input oss2
+
+      - name: Upload bustly-prompts to OSS
+        env:
+          OSS_ACCESS_KEY_ID: ${{ secrets.OSS_ACCESS_KEY_ID }}
+          OSS_ACCESS_KEY_SECRET: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
+          OSS_REGION: ${{ secrets.OSS_REGION }}
+          OSS_BUCKET: ${{ env.OSS_BUCKET }}
+          OSS_PREFIX: ${{ env.OSS_PREFIX }}
+          PROMPTS_DIR: ${{ env.PROMPTS_DIR }}
+          UPLOAD_ENV: ${{ env.UPLOAD_ENV }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [ -z "${OSS_ACCESS_KEY_ID:-}" ] || [ -z "${OSS_ACCESS_KEY_SECRET:-}" ]; then
+            echo "::error::Missing OSS_ACCESS_KEY_ID or OSS_ACCESS_KEY_SECRET repository secrets."
+            exit 1
+          fi
+
+          python <<'PY'
+          import mimetypes
+          import os
+          from pathlib import Path
+
+          import oss2
+
+          access_key_id = os.environ["OSS_ACCESS_KEY_ID"].strip()
+          access_key_secret = os.environ["OSS_ACCESS_KEY_SECRET"].strip()
+          region = (os.environ.get("OSS_REGION") or "oss-us-west-1").strip()
+          bucket_name = os.environ["OSS_BUCKET"].strip()
+          prefix = os.environ["OSS_PREFIX"].strip().strip("/")
+          prompts_dir = Path(os.environ["PROMPTS_DIR"].strip()).resolve()
+          upload_env = os.environ["UPLOAD_ENV"].strip()
+
+          if not prompts_dir.exists():
+            raise SystemExit(f"prompts directory not found: {prompts_dir}")
+
+          endpoint = f"https://{region}.aliyuncs.com"
+          auth = oss2.Auth(access_key_id, access_key_secret)
+          bucket = oss2.Bucket(auth, endpoint, bucket_name)
+
+          files = []
+          for path in prompts_dir.rglob("*"):
+            if not path.is_file():
+              continue
+            if ".git" in path.parts:
+              continue
+            if path.name == ".DS_Store":
+              continue
+            files.append(path)
+
+          if not files:
+            raise SystemExit(f"no files found under {prompts_dir}")
+
+          print(
+            f"[bustly-prompts upload] env={upload_env} bucket={bucket_name} "
+            f"prefix={prefix} files={len(files)}"
+          )
+
+          for file_path in sorted(files):
+            rel = file_path.relative_to(prompts_dir).as_posix()
+            object_name = f"{prefix}/{rel}"
+            content_type, _ = mimetypes.guess_type(file_path.name)
+            headers = {"Cache-Control": "public, max-age=300"}
+            if content_type:
+              headers["Content-Type"] = content_type
+
+            bucket.put_object_from_file(object_name, str(file_path), headers=headers)
+            print(f"[bustly-prompts upload] uploaded {object_name}")
+
+          print(
+            f"[bustly-prompts upload] completed base_url="
+            f"https://{bucket_name}.{region}.aliyuncs.com/{prefix}"
+          )
+          PY
