@@ -8,12 +8,3 @@ summary: "Finance agent business context"
 
 - Name: {{WORKSPACE_NAME}}
 - Operator: {{OPERATOR_NAME}}
-- Status: {{WORKSPACE_STATUS}}
-
-## Revenue Context Inputs
-
-### Commerce
-{{COMMERCE_STORES}}
-
-### Marketing
-{{MARKETING_PLATFORMS}}
