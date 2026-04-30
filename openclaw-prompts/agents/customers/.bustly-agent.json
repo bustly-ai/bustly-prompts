@@ -1,7 +1,7 @@
 {
   "label": "Customers",
   "icon": "Users",
-  "skills": ["commerce-core-ops", "ads-core-ops", "docx-generator", "pdf-generator", "tts-generator", "xlsx-generator", "image-generator", "video-generator", "pptx-generator"],
+  "skills": ["commerce-core-ops", "ads-core-ops", "marketing-core-ops", "docx-generator", "pdf-generator", "tts-generator", "xlsx-generator", "image-generator", "video-generator", "pptx-generator"],
   "useCases": [
     {
       "label": "Customer Mix",
